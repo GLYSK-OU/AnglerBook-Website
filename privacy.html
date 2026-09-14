@@ -12,7 +12,10 @@
   Field lists come from AnglerBook-telemetry/src/index.js (closed allowlist),
   AnglerBook-buddies/schema.sql, and Android PlaceKey.kt. If any of those change, so does
   this page. Place keys are described as COARSENED, never anonymised: a geohash-6 cell
-  decodes back to its ~1.2 x 0.6 km box.
+  decodes back to a box of about 0.9 x 0.6 km (~0.52 km2) at Italian/Slovenian latitudes.
+  NB: PlaceKey.swift:12,23 and PlaceKey.kt:24 both say "~1.2 km x 0.6 km at mid-latitudes",
+  which is the EQUATORIAL longitude width; it shrinks by cos(latitude). Vault .17 carries the
+  corrected figure and the vault wins. BOTH platforms emit cells since iOS 32557ff (#65).
   Verified 14 Sep 2026: catalog.anglerbook.fun resolves to glysk-ou.github.io (GitHub Pages,
   185.199.10x.153) — it is NOT on Cloudflare, whatever the handover brief says.
   Open items: §05 states the statistics have no off switch (true on both platforms today);
@@ -79,7 +82,7 @@
     <li>a duration band (under 1 hour, 1–3 hours, over 3 hours) and the ISO week and month;</li>
     <li>platform, operating-system version, App version and build, and your subscription tier.</li>
   </ul>
-  <p><strong>What a place key is.</strong> If you fished within range of a water in our public beat registry, it is that beat’s name. Otherwise: on iOS the key is simply “unknown”, and on Android it is a <strong>grid square of roughly 1.2&nbsp;×&nbsp;0.6&nbsp;km</strong> containing your start point. We call that <strong>coarsened</strong> rather than anonymous, and the distinction is deliberate: a grid square is not a coordinate and cannot be turned back into one, but it does say which square. Your actual coordinates are never sent to us.</p>
+  <p><strong>What a place key is.</strong> If you fished within range of a water in our public beat registry, the key is that beat’s name. Otherwise it is a <strong>grid square of roughly 0.9&nbsp;×&nbsp;0.6&nbsp;km</strong> — about half a square kilometre — containing the point where you started; the App falls back to “unknown” only when it can work out neither. We call a grid square <strong>coarsened</strong> rather than anonymous, and the distinction is deliberate: it is not a coordinate and cannot be turned back into one, but it does say which square. Your actual coordinates are never sent to us.</p>
   <p><strong>What the record never contains:</strong> your name, nickname, email or account; any device or advertising identifier; your IP address (the receiving server is written never to read or log it); GPS coordinates; exact dates or times; catch details beyond the count; photos; or notes. Sending is also delayed by a random interval of up to 30 seconds, so records cannot be linked to one another by the order in which they arrive.</p>
   <p><strong>What it is used for.</strong> Two things: understanding how the App is used so we can improve it, and producing <strong>aggregate</strong> statistics about fly fishing and fly-fishing gear — how a season ran on a stretch of water, which tackle is in use where. GLYSK may publish or commercially license those aggregate statistics as industry data. Only aggregates are ever published, and a minimum-count threshold is applied so that a figure derived from fewer than five sessions is suppressed rather than shown.</p>
   <p><strong>Storage.</strong> The records are held in a Cloudflare D1 database pinned to Cloudflare’s <strong>EU jurisdiction</strong>, and are kept as a long-term statistical dataset.</p>
