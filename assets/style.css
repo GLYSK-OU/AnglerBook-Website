@@ -495,3 +495,8 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 }
 .foot-social a:hover { color: var(--green); border-color: var(--green); }
 .foot-social svg { width: 17px; height: 17px; }
+
+/* ---- Google Play live CTA (Android released) ---- */
+.gp-cta { display: inline-flex; line-height: 0; }
+.gp-cta .gp-badge { height: 72px; width: auto; display: block; opacity: 1; }
+.gp-cta:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: 9px; }
