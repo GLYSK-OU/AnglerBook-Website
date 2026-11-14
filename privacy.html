@@ -21,6 +21,13 @@
   Open items: §05 states the statistics have no off switch (true on both platforms today);
   the buddies D1 was NOT created with --jurisdiction eu, so no EU residency is claimed for it;
   the buddies Worker has no delete endpoint, so erasure in §06/§12 is by email.
+  14 Nov 2026: section 07 Fishing guides added (07-16 renumbered 08-17) from vault 01.01.01.28,
+  against the guides Worker (POST/DELETE /v1/reports, /v1/claim) and iOS GuidesService.swift /
+  GuideReport.swift (label only for registry beats, enforced in the app). Live report POST and
+  DELETE verified against remote D1 the same day. Settled at review: one contact address
+  site-wide, support.anglerbook@glysk.eu (the guides Worker's CONTACT_EMAIL and MAIL_REPLY_TO
+  must be changed to match, in its own repo); Brevo stays "Brevo (France)" until the entity and
+  DPA are confirmed; a lawyer cleared the invitation practice.
   Have it reviewed before commercial reliance. Linked from the iOS paywall (App Review 3.1.2),
   the Play Data Safety declaration and the Google OAuth consent screen:
   https://anglerbook.fun/privacy.html
@@ -41,18 +48,18 @@
 <div class="wrap legal-head">
   <a class="back" href="index.html">&larr; AnglerBook</a>
   <h1>Privacy Policy</h1>
-  <p class="meta">Published by GLYSK&nbsp;OÜ · Last updated 14 September 2026</p>
+  <p class="meta">Published by GLYSK&nbsp;OÜ · Last updated 14 November 2026</p>
 </div>
 
 <main class="wrap legal-body">
   <p>This policy explains what AnglerBook (the <strong>“App”</strong>) does with your information. It covers the App on <strong>iOS and Android</strong>; where the two differ, both are described.</p>
-  <p>The short version: your fishing journal — catches, photos, notes and GPS coordinates — lives on <strong>your</strong> device, and if you turn on backup it goes to <strong>your own</strong> iCloud account or your own Google Drive. GLYSK&nbsp;OÜ never receives a copy of it. Two GLYSK services do receive data derived from your fishing: <a href="#telemetry">anonymous session statistics</a>, which carry no identifier at all, and the opt-in <a href="#buddies">Fishing Buddies</a> layer, which carries the nickname you choose. Your session coordinates are also sent to the weather provider, as described in section&nbsp;02. Each of these is set out in full below. The App contains no third-party advertising or analytics trackers.</p>
+  <p>The short version: your fishing journal — catches, photos, notes and GPS coordinates — lives on <strong>your</strong> device, and if you turn on backup it goes to <strong>your own</strong> iCloud account or your own Google Drive. GLYSK&nbsp;OÜ never receives a copy of it. GLYSK services receive data derived from your fishing in three cases: <a href="#telemetry">anonymous session statistics</a>, which carry no identifier at all, the opt-in <a href="#buddies">Fishing Buddies</a> layer, which carries the nickname you choose, and, only if you record a session with a <a href="#guides">fishing guide</a>, a short report for that guide that carries no identifier either. Your session coordinates are also sent to the weather provider, as described in section&nbsp;02. Each of these is set out in full below. The App contains no third-party advertising or analytics trackers.</p>
 
   <h2><span class="n">01</span>Who we are</h2>
-  <p>The data controller is <a href="https://glysk.eu" target="_blank" rel="noopener"><strong>GLYSK&nbsp;OÜ</strong></a>, a company registered in Estonia, publisher of AnglerBook. For any privacy question or request, contact <a href="mailto:development@glysk.eu">development@glysk.eu</a>.</p>
+  <p>The data controller is <a href="https://glysk.eu" target="_blank" rel="noopener"><strong>GLYSK&nbsp;OÜ</strong></a>, a company registered in Estonia, publisher of AnglerBook. For any privacy question or request, contact <a href="mailto:support.anglerbook@glysk.eu">support.anglerbook@glysk.eu</a>.</p>
 
   <h2><span class="n">02</span>What the App records, and where it lives</h2>
-  <p>You create the content; the App stores it locally on your device. If you turn on backup, that content is copied to an account of your own — iCloud on iOS, or the hidden app-data area of your Google Drive on Android, which no other app can read and which we cannot read either. Your journal itself stays under your control: GLYSK never receives your catches, your photos, your notes or your GPS coordinates. What does leave the device is described here and in sections <a href="#telemetry">05</a> and <a href="#buddies">06</a>.</p>
+  <p>You create the content; the App stores it locally on your device. If you turn on backup, that content is copied to an account of your own — iCloud on iOS, or the hidden app-data area of your Google Drive on Android, which no other app can read and which we cannot read either. Your journal itself stays under your control: GLYSK never receives your catches, your photos, your notes or your GPS coordinates. What does leave the device is described here and in sections <a href="#telemetry">05</a>, <a href="#buddies">06</a> and <a href="#guides">07</a>.</p>
   <ul>
     <li><strong>Account.</strong> On iOS, Sign in with Apple gives the App an Apple-provided identifier and, if you allow it, a relay email. On Android, signing in with Google gives the App your Google account’s name, email address and profile picture. Either way it is used only to tie your journal to your account on your devices. You can set your own display name and picture in the App instead of the ones Google supplied.</li>
     <li><strong>Backup.</strong> Optional. iCloud sync on iOS; on Android, the journal and its photographs are written to your Drive’s hidden app-data folder, using a permission scoped to that folder alone — the App cannot see the rest of your Drive.</li>
@@ -100,45 +107,57 @@
   <p><strong>What is not stored:</strong> GPS coordinates, photos, notes, your email, your Apple or Google account identifier, or anything from your journal beyond the counts and biggest-catch figures listed above.</p>
   <p><strong>Your fishing spots are not shared.</strong> The standings other anglers see carry no place at all — not a beat name, not a grid square, nothing. A buddy sees your catch count and your biggest fish for a day <em>only if they fished the same water that day</em>, and the App only ever asks for standings on water you fished yourself. Season standings are year totals with no place attached. The place key is stored for one purpose: so that two anglers who were on the same water can appear in the same table. It is never displayed to anyone and never used to show a buddy where you were.</p>
   <p><strong>Fishing incognito.</strong> Any trip can be recorded incognito, which keeps it out of the daily standings entirely. It does not affect the anonymous statistics in section&nbsp;05.</p>
-  <p><strong>Leaving.</strong> You can unfollow and block from inside the App. To delete your Fishing Buddies record entirely — nickname, code, connections and standings — email <a href="mailto:development@glysk.eu">development@glysk.eu</a> and tell us your buddy code; we will delete it. This data is held in a Cloudflare D1 database.</p>
+  <p><strong>Leaving.</strong> You can unfollow and block from inside the App. To delete your Fishing Buddies record entirely — nickname, code, connections and standings — email <a href="mailto:support.anglerbook@glysk.eu">support.anglerbook@glysk.eu</a> and tell us your buddy code; we will delete it. This data is held in a Cloudflare D1 database.</p>
 
-  <h2><span class="n">07</span>Subscriptions</h2>
+  <h2 id="guides"><span class="n">07</span>Fishing guides</h2>
+  <p>AnglerBook lists professional fishing guides who have asked to be listed. This section covers two people: you as an angler who records a session with a guide, and you as a guide.</p>
+  <p><strong>If you record a session with a guide.</strong> You can choose a guide from the list for a session. When the session ends, the App sends one short report to the GLYSK guides service: which guide, the day, the place key (the same beat name or grid square described in section&nbsp;05), how long the session lasted and how many fish you caught. A beat name is sent only for a beat in our public registry; a grid square is never given a name. The report contains no name, no account, no device identifier and no coordinates, and the service does not store your IP address. A random report number lets a later edit of the session replace its own report, and removing the guide from the session, or deleting the session, withdraws it. The guide sees these figures added up per day and place: how many clients, how many catches and how long. The guide never sees your journal, your catches or who you are. The guide’s name stays in your own journal on your device even if the guide later leaves the list.</p>
+  <p>When you choose a guide, the App also looks up the guide’s Fishing Buddies code and follows the guide for that session, as described in section&nbsp;06. The guide can see you under “Following you”, as with any follower. The guides you keep in <strong>My guides</strong> are stored in your own iCloud or on your device and are never sent to us, so a guide never learns who saved them.</p>
+  <p><strong>If you are a guide.</strong> We store what you give us to publish your listing: your name, photo, the countries, regions and waters you cover, your languages, your association and member number, and the contact details and social channels you choose to show. Both AnglerBook apps show these to every user. Your sign-in email address is never published unless you choose it as your contact address. If you connect the App to your listing with “I’m a fishing guide”, we store your Fishing Buddies code with your listing so that anglers who choose you can follow you. We also store the session reports anglers send about sessions with you, and your own names for places.</p>
+  <p>We reach guides in two ways. We may send one invitation to the email address your association publishes for you, which is how we know the address is yours. You are listed only if you open the invitation and accept the listing agreement; if you do not answer, the invitation is deleted after 90 days. If you apply on your own, we check your membership on the association’s public page, or by hand, and write only to the address that page publishes. While an application waits, we hold what you sent with it: your email address, name, association and member number, any link you offered as evidence, and any note you wrote.</p>
+  <p>Every invitation has a link to stop us writing to you. If you use it, we keep your address on a do-not-contact list so that we never write to you again. If you change your mind, write to us.</p>
+  <p>You can hide your listing or delete it at any time on your guide page. Deletion removes your listing, photo, reports and place names within 30 days. We keep only a record that you accepted, opted out, left or deleted: your email address, name, association and member number, the date and the version of the agreement, as proof of your choice and so we never write to you against it. Anglers who chose you keep your name in their own journals on their own devices, which we cannot reach.</p>
+
+  <h2><span class="n">08</span>Subscriptions</h2>
   <p>AnglerBook Pro is sold and billed by the store you installed from: Apple through your App Store account, or Google through Google Play Billing. The store processes the purchase; GLYSK receives confirmation of your subscription status (active or not) so the App can unlock features. We do <strong>not</strong> receive your payment-card details. The store’s own privacy policy governs the purchase itself.</p>
 
-  <h2><span class="n">08</span>The gear, species and beat catalogs</h2>
+  <h2><span class="n">09</span>The gear, species and beat catalogs</h2>
   <p>The App fetches reference data — gear, species and the registry of named beats — from public files GLYSK publishes through GitHub Pages at <strong>catalog.anglerbook.fun</strong>. When it does, your device makes a normal web request, which means GitHub may process technical data such as your IP address to serve the file — the same as visiting any website. No personal fishing data is sent in that request. GitHub’s handling is covered by GitHub’s own privacy statement.</p>
 
-  <h2 id="marketplace"><span class="n">09</span>The Fly Marketplace</h2>
+  <h2 id="marketplace"><span class="n">10</span>The Fly Marketplace</h2>
   <p>On iOS, the Fly Marketplace is a web page GLYSK hosts on Cloudflare, shown inside the App in a plain web view. Opening it is a normal web request, so Cloudflare processes technical data such as your IP address and browser information in order to serve the page. Nothing from your fishing journal is sent to it. If you add a fly from the Marketplace, the fly’s details are saved into your Flybox on your device. The Android App has no Marketplace.</p>
 
-  <h2><span class="n">10</span>Who your data is shared with</h2>
+  <h2><span class="n">11</span>Who your data is shared with</h2>
   <p>GLYSK does not sell your personal data and does not share it for advertising. The parties involved are the platform providers that make the App’s features possible:</p>
   <ul>
     <li><strong>Apple</strong> (iOS) — Sign in with Apple, iCloud sync, HealthKit, Maps geocoding, WeatherKit, and App Store subscriptions, under Apple’s privacy policy.</li>
     <li><strong>Google</strong> (Android) — Google Sign-In, the Drive app-data backup in your own account, the platform geocoder, Health Connect on your device, and Play Billing, under Google’s privacy policy.</li>
     <li><strong>Open-Meteo</strong> (Android) — receives the session’s coordinates in order to return the weather for that spot. Nothing else is sent, and no account or identifier accompanies it.</li>
-    <li><strong>Cloudflare</strong> — hosts, as our processor, the GLYSK services described above: the anonymous session statistics (in a database pinned to Cloudflare’s EU jurisdiction), Fishing Buddies, and the Fly Marketplace.</li>
+    <li><strong>Cloudflare</strong> — hosts, as our processor, the GLYSK services described above: the anonymous session statistics (in a database pinned to Cloudflare’s EU jurisdiction), Fishing Buddies, the fishing guides service (its database and photo storage pinned to Cloudflare’s EU jurisdiction), and the Fly Marketplace.</li>
+    <li><strong>Brevo</strong> (France) — sends, as our processor, the emails of the fishing guides service: invitations, sign-in links and confirmations. It receives the guide’s email address and the message.</li>
     <li><strong>GitHub</strong> — serves the public catalog files, as described above.</li>
   </ul>
+  <p>When a guide applies through an association that publishes member pages, the guides service reads that one public page once to confirm the membership; nothing is sent to the association.</p>
   <p>Because these providers operate globally, some processing may take place outside the EU; those transfers rely on the safeguards in their respective policies.</p>
 
-  <h2><span class="n">11</span>No tracking</h2>
+  <h2><span class="n">12</span>No tracking</h2>
   <p>AnglerBook includes no third-party advertising SDKs and no third-party analytics SDKs. It does not build an advertising profile of you and does not track you across other apps or websites. The session statistics in section&nbsp;05 are collected by GLYSK directly, carry no identifier, and are never used to profile you or to target advertising.</p>
 
-  <h2><span class="n">12</span>Retention and deletion</h2>
+  <h2><span class="n">13</span>Retention and deletion</h2>
   <p>Your journal stays for as long as you keep it. Deleting an item removes it from the App; deleting the App removes its on-device data. Backups live in your own account — iCloud, or your Drive’s hidden app-data folder — and you remove them there, through your Apple or Google account settings.</p>
-  <p>On our side: your <strong>Fishing Buddies</strong> record is kept until you ask us to delete it, and we will delete it on request (section&nbsp;06). The <strong>anonymous session statistics</strong> are kept as a long-term statistical dataset; because they contain no identifier, individual records cannot be located, retrieved or removed by anyone, including us. For any data question, email <a href="mailto:development@glysk.eu">development@glysk.eu</a>.</p>
+  <p>On our side: your <strong>Fishing Buddies</strong> record is kept until you ask us to delete it, and we will delete it on request (section&nbsp;06). The <strong>anonymous session statistics</strong> are kept as a long-term statistical dataset; because they contain no identifier, individual records cannot be located, retrieved or removed by anyone, including us. For any data question, email <a href="mailto:support.anglerbook@glysk.eu">support.anglerbook@glysk.eu</a>.</p>
+  <p>For fishing guides: a listing is kept until the guide deletes it or we remove it; sign-in links and connection codes expire within days; unanswered invitations are deleted after 90 days; copies of the emails we sent are deleted after 30 days; an application we did not accept is deleted 30 days after the decision, and one left unconfirmed is deleted when its link expires. Session reports are kept while the guide is listed and deleted with the listing. The record of consent and the do-not-contact list are kept as described in section&nbsp;07.</p>
 
-  <h2><span class="n">13</span>Your rights</h2>
-  <p>Under the EU General Data Protection Regulation you have the right to access, correct, delete, restrict or object to processing, to data portability, and to withdraw consent. Because your journal lives on your device and in your own cloud account, you can exercise many of these directly in the App, in iOS or Android settings, and in your Apple or Google account. For your Fishing Buddies record, contact us and we will act on it. The anonymous session statistics carry no identifier and we hold no means of connecting them to you, so we cannot single them out in response to a request — that is a consequence of their being anonymous, not a refusal. You may also lodge a complaint with the Estonian Data Protection Inspectorate (<em>Andmekaitse Inspektsioon</em>) or your local supervisory authority.</p>
+  <h2><span class="n">14</span>Your rights</h2>
+  <p>Under the EU General Data Protection Regulation you have the right to access, correct, delete, restrict or object to processing, to data portability, and to withdraw consent. Because your journal lives on your device and in your own cloud account, you can exercise many of these directly in the App, in iOS or Android settings, and in your Apple or Google account. For your Fishing Buddies record, contact us and we will act on it. Guides can see, correct, hide and delete their listing themselves on their guide page at guides.anglerbook.fun; anything else by email. The anonymous session statistics carry no identifier and we hold no means of connecting them to you, so we cannot single them out in response to a request — that is a consequence of their being anonymous, not a refusal. You may also lodge a complaint with the Estonian Data Protection Inspectorate (<em>Andmekaitse Inspektsioon</em>) or your local supervisory authority.</p>
 
-  <h2><span class="n">14</span>Children</h2>
+  <h2><span class="n">15</span>Children</h2>
   <p>AnglerBook is intended for a general audience and is not directed at children under 16. We do not knowingly collect data from children. If you believe a child has provided data through the App, contact us and we will help address it.</p>
 
-  <h2><span class="n">15</span>Security</h2>
+  <h2><span class="n">16</span>Security</h2>
   <p>Data on your device is protected by the operating system and your device passcode or biometrics; backups are protected by Apple’s or Google’s security, and the Drive backup sits in a hidden per-app area no other app can read. Data sent to our services travels over an encrypted connection. No method of storage or transmission is perfectly secure, so we encourage you to keep your device and your Apple or Google account protected.</p>
 
-  <h2><span class="n">16</span>Changes</h2>
+  <h2><span class="n">17</span>Changes</h2>
   <p>We may update this policy as the App evolves. Material changes will be reflected here with a new “last updated” date. Continuing to use the App after an update means you accept the revised policy.</p>
 
   <p class="note">Apple is not responsible for AnglerBook or its handling of your data, and neither is Google. Your use of iCloud, HealthKit, Google Drive, Health Connect, the App Store and Google Play is also governed by Apple’s and Google’s own terms and privacy policies.</p>

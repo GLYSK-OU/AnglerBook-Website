@@ -44,7 +44,7 @@ Point the domain at the IP statichost shows for the site in the dashboard
 domain takes ~1–2s while the TLS cert provisions — expected.
 
 ## Before launch
-- Contact address is development@glysk.eu (set in terms.html and privacy.html).
+- Contact address is support.anglerbook@glysk.eu (set in terms.html and privacy.html).
 - Privacy Policy is live at /privacy.html — use this as the App Store privacy URL.
 - Confirm the privacy.html assumptions still hold: no third-party advertising/analytics
   SDKs, GLYSK runs no content servers, weather source is Apple WeatherKit.
